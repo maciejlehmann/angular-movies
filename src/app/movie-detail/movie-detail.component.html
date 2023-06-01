@@ -1,0 +1,17 @@
+<div *ngIf="movie">
+  <h2>{{ movie.title | uppercase }} Details</h2>
+  <div>ID: {{ movie.id }}</div>
+  <div>Title: {{ movie.title }}</div>
+  <div>Release date: {{ movie.releaseDate }}</div>
+  <div>Rating: {{ movie.rating }}/10</div>
+  <div>
+    Genres:
+    <ul>
+      <li *ngFor="let genre of movie.genres">
+        {{ genre }}
+      </li>
+    </ul>
+  </div>
+
+  <button type="button" (click)="goBack()">go back</button>
+</div>

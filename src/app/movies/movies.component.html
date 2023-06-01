@@ -1,0 +1,33 @@
+<h2>My movies</h2>
+<ul class="movies">
+  <li *ngFor="let movie of movies">
+    <a routerLink="/details/{{ movie.id }}">
+      <span class="badge">{{ movie.id }}</span> {{ movie.title }}
+    </a>
+  </li>
+</ul>
+
+<div>
+  <label for="new-movie">Movie id: </label>
+  <input id="new-movie" #movieId />
+  <label for="new-movie">Movie title: </label>
+  <input id="new-movie" #movieTitle />
+  <label for="new-movie">Date release: </label>
+  <input id="new-movie" #movieDateRelease />
+  <label for="new-movie">Rating: </label>
+  <input id="new-movie" #movieRating />
+
+  <button
+    type="button"
+    class="add-button"
+    (click)="
+      add(+movieId.value, movieTitle.value, movieDateRelease.value, +movieRating.value);
+      movieId.value = '';
+      movieTitle.value = '';
+      movieDateRelease.value = '';
+      movieRating.value = ''
+    "
+  >
+    Add new movie
+  </button>
+</div>
